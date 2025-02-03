@@ -19,7 +19,7 @@ CRSSAS is a ComputerCraft-based system designed to manage and display railway sy
 ## Installation
 
 ### Server
-1. Place the `server.lua` script on a ComputerCraft computer.
+1. Place the `server.lua` and `basalt.lua` script on a ComputerCraft computer.
 2. Provide it with Poster Files which consist of an image(see format below)
 3. Ensure the computer has a wireless modem attached.
 4. Run the script on the server computer.
