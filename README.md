@@ -32,19 +32,30 @@ CRSSAS is a ComputerCraft-based system designed to manage and display railway sy
 ## Usage
 
 ### Server
-1. Start the server: Run the `server.lua` script on the server.
+1. Start the server: Run the `server.lua` script on the server computer.
 2. Configure GUI: Use the GUI to add lines and customize.
 3. Broadcast updates: Press Send to update the information on all clients.
 
 ### Client
-1. Start the client: Run the `client.lua` script on the client.
+1. Start the client: Run the `client.lua` script on the client computer.
 2. Display status: The client will receive updates from the server.
 3. View announcements: Large announcements can be displayed on a separate screen.
 
-## Poster Image and text file format
-Poster Image: The poster image file must be 18x19 pixels. You can use this [tool](https://github.com/DownrightNifty/computercraft-stuff) to achieve the desired file format.
+## Current Limitations:
 
-Text File Format: The text file associated with the poster image should follow this format:
+### The status screen
+The status screen uses the "Poster1" file for the background and static texts but the status information are currently hardcoded int place so i recomend using the same poster image as provided in the repo.
+
+
+
+
+
+## Poster Image and text file format
+Poster Image: 
+The poster image file must be 18x19 pixels. You can use this [tool](https://github.com/DownrightNifty/computercraft-stuff) to achieve the desired file format.
+
+Text File Format:
+The text file associated with the poster image should follow this format:
 
 |xPosition|yPosition|The text|text color|background color|
 
