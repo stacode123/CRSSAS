@@ -33,13 +33,15 @@ CRSSAS is a ComputerCraft-based system designed to manage and display railway sy
 
 ### Server
 1. Start the server: Run the `server.lua` script on the server computer.
-2. Configure GUI: Use the GUI to add lines and customize.
-3. Broadcast updates: Press Send to update the information on all clients.
+2. I recomend adding `startup.lua` to the computer to automaticlly run the code
+3. Configure GUI: Use the GUI to add lines and customize.
+4. Broadcast updates: Press Send to update the information on all clients.
 
 ### Client
 1. Start the client: Run the `client.lua` script on the client computer.
-2. Display status: The client will receive updates from the server.
-3. View announcements: Large announcements can be displayed on a separate screen.
+2. I recomend adding `startup.lua` to the computer to automaticlly run the code
+3. Display status: The client will receive updates from the server.
+4. View announcements: Large announcements can be displayed on a separate screen.
 
 ## Current Limitations:
 
