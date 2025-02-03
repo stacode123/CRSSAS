@@ -151,9 +151,10 @@ while true do
             if LargeAnnouncment then
                 paintutils.drawFilledBox(1,1,18,19,colors.orange)
                 mon.setBackgroundColor(colors.orange)
+                mon.setCursorPos(1,1)
                 for x,y in ipairs(Announcment) do
-                    mon.setCursorPos(1,1)
                     mon.write(y)
+                    mon.setCursorPos(1,x)
                 end
                 sleep(5)
             end
