@@ -149,7 +149,7 @@ while true do
             PrintStatusData()
             sleep(5)
             if LargeAnnouncment then
-                paintutils.drawBox(1,1,18,19,colors.orange)
+                paintutils.drawFilledBox(1,1,18,19,colors.orange)
                 mon.setBackgroundColor(colors.orange)
                 for x,y in ipairs(Announcment) do
                     mon.setCursorPos(1,1)
