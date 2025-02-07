@@ -138,6 +138,7 @@ end
 firstBoot = true
 while true do
     for x = 1,#posters,2 do
+        sleep(1)    
         --Skip Status Board for the first Boot--
         if firstBoot then
             firstBoot =false
