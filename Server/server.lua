@@ -34,6 +34,23 @@ local popup = main:addFrame():setSize(30, 10):setPosition(10, 5):setBackground(c
 local confirmButton = main:addButton():setText("Send"):setPosition(19,16):setBackground(colors.yellow):setSize(8,3)
 
 
+function saveMessage(messageToSave)
+    Save = fs.open("SavedData","w+")
+    Save.write(textutils.serialise(messageToSave))
+    Save.close()
+end
+
+function readMessage()
+    if fs.exists("SavedData") then
+        Save = fs.open("SavedData","r")
+        return textutils.unserialise(Save.readAll())
+    else
+        return {}
+    end    
+end
+
+
+
 -- Encodes the Data to be sent to the clients--
 function createMessage(chk,txt)
     tmessage = {}
@@ -79,6 +96,7 @@ function createMessage(chk,txt)
         
     end    
     message = tmessage
+    saveMessage(message)
     basalt.debug(printTable(tmessage))
 end  
 
@@ -117,7 +135,12 @@ LabelPopup = popup:addLabel():setPosition(8, 2):setText("Enter Line Name"):setFo
 trainName = popup:addInput():setPosition(12, 5):setSize(7, 1):setBackground(colors.white):setForeground(colors.gray):setInputLimit(3)
 trainName:onChange(function(self,event,value)
     trainNameText = value
-end)
+end)if not readMessage() == nil then
+    message=readMessage()
+    print("READ")
+    sleep(10)
+
+end
 closePopup = popup:addButton():setPosition(30,1):setBackground(colors.red):setForeground(colors.black):setText("x"):setSize(1,1):onClick(function (self,event,value)
     popup:hide()
     
@@ -132,7 +155,12 @@ local customMessageLabel = main:addLabel():setPosition(9,1)
 customMessageLabel:setText("Lines")
 
 local customMessage = main:addTextfield():setSize(18,2):setPosition(29,4)
+if not readMessage() == nil then
+    message=readMessage()
+    print("READ")
+    sleep(10)
 
+end
 local LargeCheckbox = main:addCheckbox():setPosition(27,3):show():setSize(1,1):setBackground(colors.gray):setBorder(colors.black):onChange(function(self,event,value)
     if value then
         customMessage:setSize(18,14)
@@ -186,5 +214,6 @@ local function inputLoop()
     end
 end
 
+message = readMessage()
 parallel.waitForAll(sendLoop, inputLoop)
 
