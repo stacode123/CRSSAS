@@ -1,11 +1,16 @@
 --      ComputerCraft Railway System Status and Announcment System - by Stacode (MIT license)
---                         This is the server(ONLY 1 PER WORLD)
+--                         This is the server(ONLY 1 PER SYSTEM)
 --                              Requires a wireless modem
 --                           The server HAS to be chunk loaded
 
+cnfg = fs.open("server.config","r")
+c = cnfg.readLine()
+network = string.match(c, '= *([^ ]+)')
+print("network: " .. network)
+
 
 peripheral.find("modem", rednet.open)
-rednet.host("Train Status","Status Server")
+rednet.host("Train Status",network)
 
 --Setup Vars--
 local basalt = require("basalt")
@@ -195,7 +200,7 @@ end)
 local function sendLoop()
     while true do
         if message ~= {} then
-            rednet.broadcast(message,"Train Status")
+            rednet.broadcast(message,network)
             sleep(0.1)
         end    
     end

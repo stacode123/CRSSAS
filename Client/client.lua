@@ -13,6 +13,14 @@ Data = {}
 id,msg = nil,nil
 Loaded = false
 
+cnfg = fs.open("client.config","r")
+c = cnfg.readLine()
+network = string.match(c, '= *([^ ]+)')
+term.write("network: " .. network)
+sleep(5)
+mon.clear()
+mon.setCursorPos(1,1)
+
 --Tools
 function printTable(table)
     for x,y in pairs(table) do
@@ -58,7 +66,7 @@ end
 --Updates the data from the server
 function Update_Data_From_Server()
     while true do
-        local id, msg = rednet.receive("Train Status")
+        local id, msg = rednet.receive(network)
         local TempData = msg
         local newData = {}
         if not TempData[1] then
